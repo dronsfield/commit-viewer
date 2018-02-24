@@ -1,0 +1,122 @@
+[
+	{
+		"hash": "4b98e79a9e305f27ab0b8f44e3fb318a6e306f57",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2017-12-06 16:21:40 +0000",
+		"subject": "blog",
+		"repo": "andrespence"
+	},
+	{
+		"hash": "0196eaf1fcb176385ebcbafdd128c7de01cbb0ef",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2017-12-06 16:54:14 +0000",
+		"subject": "about",
+		"repo": "andrespence"
+	},
+	{
+		"hash": "6289f0c2ca0332b9fc9f0f37a9a741214ec8d62d",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2017-12-06 16:55:03 +0000",
+		"subject": "fix duplicate nav links",
+		"repo": "andrespence"
+	},
+	{
+		"hash": "cfe235c53adcddc561e9d5841eb2de993f10cd1a",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2017-12-20 16:45:26 +0000",
+		"subject": "new collage home page",
+		"repo": "ruth-js"
+	},
+	{
+		"hash": "2d1224a8985250cfe4947241602611d0145365cb",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2017-12-20 17:07:50 +0000",
+		"subject": "added social links to footer",
+		"repo": "ruth-js"
+	},
+	{
+		"hash": "d1dcb28404cdc1961f890dd663c1b74307739014",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2017-12-20 17:14:13 +0000",
+		"subject": "small adjustment to classes page (contact section)",
+		"repo": "ruth-js"
+	},
+	{
+		"hash": "92c7797aa5d92c44746737524e45e60ee2a884a5",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2017-12-20 17:29:46 +0000",
+		"subject": "homepage: images fade in after masonry layout",
+		"repo": "ruth-js"
+	},
+	{
+		"hash": "a6782ebd443fe382e4410d42e74e9899882a2ffc",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2017-12-20 17:32:22 +0000",
+		"subject": "fix last",
+		"repo": "ruth-js"
+	},
+	{
+		"hash": "2340e088af426294ae72ba82113e281a5b5fd58d",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2018-01-04 15:29:55 +0000",
+		"subject": "adding some pages from copywrite doc",
+		"repo": "andrespence"
+	},
+	{
+		"hash": "5df9ab5d6cdd0dfd585c1eeca3a0a83743a5193f",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2018-01-04 21:22:20 +0000",
+		"subject": "signup form",
+		"repo": "andrespence"
+	},
+	{
+		"hash": "85dc87171aadb746c01f7b4c28deb73017c5ed67",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2018-01-04 21:29:02 +0000",
+		"subject": "form fix",
+		"repo": "andrespence"
+	},
+	{
+		"hash": "eaf6cc52af940a9ec47851dfac6495dc140a59da",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2018-01-04 21:37:36 +0000",
+		"subject": "form fix 2",
+		"repo": "andrespence"
+	},
+	{
+		"hash": "bcc1911aaba3b000116af504419a9c1c3206d987",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2018-01-22 13:59:10 +0000",
+		"subject": "fixing home page",
+		"repo": "andrespence"
+	},
+	{
+		"hash": "10f5f4e25bfc480edd5cf2ff2de4bd414ce0e858",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2018-01-28 22:06:02 +0000",
+		"subject": "removed speakers pages and stopped nav overlap",
+		"repo": "andrespence"
+	},
+	{
+		"hash": "61cfc1bb65282e468600e0730195de948116dca7",
+		"authorName": "dronz",
+		"authorEmail": "josh@dronsfield.gmail.com",
+		"authorDate": "2018-01-29 23:49:39 +0000",
+		"subject": "testimonies page",
+		"repo": "andrespence"
+	}
+]
