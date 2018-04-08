@@ -38,10 +38,10 @@ module.exports = ({ commits, colors }) => {
           <div class="commit-repo">${commit.repo}</div>
           <div class="commit-message">${commit.subject}</div>
         </div>`
-        ))}
+        )).join('\n')}
       </div>
     </div>`
-    ))}
+    )).join('\n')}
   </body>
 </html>`
 }

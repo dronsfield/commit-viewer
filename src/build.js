@@ -1,6 +1,8 @@
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
+const express = require('express')
+const opn = require('opn')
 
 const commits = require('./commits')
 const htmlTemplate = require('../html/index.html.template')({ commits })
@@ -32,9 +34,15 @@ const execTasks = (tasks, cb) => {
   rfn(0)
 }
 
+const app = express()
+
 execTasks(
   buildTasks,
   x => {
-    console.log('x', x)
+    app.use(express.static(rpath('../build')))
+    app.listen(4000, () => {
+      console.log('listening on 4000')
+      opn('http://localhost:4000/')
+    })
   }
 )
