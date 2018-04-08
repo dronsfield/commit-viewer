@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const moment = require('moment');
 
-const { repos, author } = require('./getConfig')
+const { repos, author } = require('./config')
 
 const getAbsolutePath = relPath => {
   const dots = relPath.lastIndexOf('..')

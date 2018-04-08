@@ -21,6 +21,8 @@
   "homepage": "https://github.com/dronsfield/commit-viewer#readme",
   "dependencies": {
     "gitlog": "^3.1.2",
+    "lodash": "^4.17.5",
+    "mkdirp": "^0.5.1",
     "moment": "^2.22.0"
   }
 }
