@@ -1,0 +1,26 @@
+{
+  "name": "commit-viewer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "commit-viewer": "./bin/run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dronsfield/commit-viewer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dronsfield/commit-viewer/issues"
+  },
+  "homepage": "https://github.com/dronsfield/commit-viewer#readme",
+  "dependencies": {
+    "gitlog": "^3.1.2",
+    "moment": "^2.22.0"
+  }
+}
