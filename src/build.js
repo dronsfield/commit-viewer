@@ -34,15 +34,20 @@ const execTasks = (tasks, cb) => {
   rfn(0)
 }
 
-const app = express()
-
-execTasks(
-  buildTasks,
-  x => {
-    app.use(express.static(rpath('../build')))
-    app.listen(4000, () => {
-      console.log('listening on 4000')
-      opn('http://localhost:4000/')
-    })
-  }
+const execTasks2 = (tasks, cb) => (
+  tasks.reduceRight(
+    (acc, task) => () => task(acc),
+    cb
+  )()
 )
+
+const serve = () => {
+  const app = express()
+  app.use(express.static(rpath('../build')))
+  app.listen(4000, () => {
+    console.log('listening on 4000')
+    opn('http://localhost:4000/')
+  })
+}
+
+execTasks2(buildTasks, serve)
