@@ -32,30 +32,23 @@ const build = () => {
     )
   ]
   
-  const execTasks = (tasks, cb) => {
-    const rfn = n => {
-      if (tasks[n + 1]) {
-        tasks[n](() => {
-          rfn(n + 1)
-        })
-      } else {
-        tasks[n](cb)
-      }
-    }
-    rfn(0)
-  }
-  
-  execTasks(
-    buildTasks,
-    x => {
-      const app = express()
-      app.use(express.static(rpath('../build')))
-      app.listen(8000, () => {
-        console.log('view your commits at localhost:8000')
-        opn('http://localhost:8000/')
-      })
-    }
+  const execTasks = (tasks, cb) => (
+    tasks.reduceRight(
+      (acc, task) => () => task(acc),
+      cb
+    )()
   )
+  
+  const serve = () => {
+    const app = express()
+    app.use(express.static(rpath('../build')))
+    app.listen(8000, () => {
+      console.log('view your commits at localhost:8000')
+      opn('http://localhost:8000/')
+    })
+  }
+
+  execTasks(buildTasks, serve)
 }
 
 module.exports = build
