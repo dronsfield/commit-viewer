@@ -3,45 +3,66 @@ const { get } = require('lodash')
 
 moment.suppressDeprecationWarnings = true
 
-module.exports = ({ commits, colors }) => {
+module.exports = ({ commits, colors, background }) => {
   const commitsByDay = commits.reduce(
     (result, commit) => {
       const day = moment(commit.authorDate).format('YYYY-MM-DD')
       return {
         ...result,
-        [day]: (result[day] || []).concat(commit)
+        [day]: (result[day] || []).concat(commit),
       }
     },
     {}
   )
 
-  
-
-
+  const repoColors = commits.reduce(
+    (result, { repo }) => {
+      if (!result[repo]) {
+        result[repo] = colors.shift()
+      }
+      return result
+    },
+    {}
+  )
 
  return `<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
-  <link rel="stylesheet" href="main.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <style>
+      body { background-color: ${background}; }
+    </style>
   </head>
   <body>
-    ${Object.keys(commitsByDay).map(day => (
-    `<div class="day" id="${day}">
-      <div class="day-title">${moment(day).format('dddd Do MMM')}</div>
-      <div class="commits">
-        ${commitsByDay[day].map(commit => (
-        `<div class="commit-time">${moment(commit.authorDate).format('hh:mmaa')}</div>
-        <div class="commit-info">
-          <div class="commit-repo">${commit.repo}</div>
-          <div class="commit-message">${commit.subject}</div>
-        </div>`
-        )).join('\n')}
-      </div>
-    </div>`
-    )).join('\n')}
+    <div id="container">
+      ${
+        Object.keys(commitsByDay)
+        .sort((a, b) => {
+          return new Date(b) - new Date(a)
+        })
+        .map(day => (
+      `<div class="day" id="${day}">
+        <div class="day-title">${moment(day).format('dddd Do MMM')}</div>
+        <div class="commits">
+          ${commitsByDay[day].map(commit => (
+          `<div class="commit" style="color:${repoColors[commit.repo]};">
+            <div class="commit-meta">
+              <span class="commit-time">
+                ${moment(commit.authorDate).format('hh:mma')}
+              </span>
+              <span class="separator"> / </span>
+              <span class="commit-repo">${commit.repo}</span>
+            </div>
+            <div class="commit-message">${commit.subject}</div>
+          </div>`
+          )).join('\n')}
+        </div>
+      </div>`
+      )).join('\n')}
+    </div>
   </body>
 </html>`
 }

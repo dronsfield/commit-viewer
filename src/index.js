@@ -1,1 +1,3 @@
-require('./build')
+const build = require('./build')
+
+build()

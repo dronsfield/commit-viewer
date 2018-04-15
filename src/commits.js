@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const moment = require('moment');
 
-const { repos, author } = require('./config')
+const { repos, author, time } = require('./settings')
 
 const getAbsolutePath = relPath => {
   const dots = relPath.lastIndexOf('..')
@@ -19,9 +19,9 @@ repos.forEach(repo => {
   // console.log(path)
   const options = {
     repo: path.join(process.cwd(), repo),
-    since: moment().startOf('day').subtract(7, 'day').toDate(),
+    since: moment().startOf('day').subtract(...time).toDate(),
     nameStatus: false,
-    number: 100,
+    number: 99999,
     fields: [
       'hash',
       'authorName',
@@ -36,8 +36,8 @@ repos.forEach(repo => {
       .filter(commit => {
         if (author) {
           return (
-            commit.authorName === author ||
-            commit.authorEmail === author
+            commit.authorName.includes(author) ||
+            commit.authorEmail.includes(author)
           )
         }
         else {
