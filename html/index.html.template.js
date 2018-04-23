@@ -9,7 +9,7 @@ module.exports = ({ commits, colors, background }) => {
       const day = moment(commit.authorDate).format('YYYY-MM-DD')
       return {
         ...result,
-        [day]: (result[day] || []).concat(commit),
+        [day]: (result[day] || []).concat(commit)
       }
     },
     {}
@@ -29,7 +29,7 @@ module.exports = ({ commits, colors, background }) => {
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>${commits.toString()}</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
     <link rel="stylesheet" href="main.css" type="text/css">
     <style>

@@ -32,7 +32,8 @@ repos.forEach(repo => {
     all: true
   }
   try {
-    const commits = gitlog(options)
+    const commits = (
+      gitlog(options)
       .filter(commit => {
         if (author) {
           return (
@@ -48,10 +49,11 @@ repos.forEach(repo => {
         ...commit,
         repo: path.basename(repo)
       }))
+    )
 
-    console.log(`found ${commits.length} commits from repo '${repo}'`)
     allCommits.push(...commits)
-  } catch(e) {
+  }
+  catch(e) {
     console.log(`couldn't find repo '${repo}'`)
   }
 })
@@ -59,5 +61,9 @@ repos.forEach(repo => {
 allCommits.sort((a, b) => {
   return new Date(a.authorDate) - new Date(b.authorDate)
 })
+
+allCommits.toString = () => `${allCommits.length} commits by ${author} from the last ${time[0]} ${time[1]}`
+
+console.log(`found ${allCommits.toString()}`)
 
 module.exports = allCommits
