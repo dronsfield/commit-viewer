@@ -1,7 +1,7 @@
-const gitlog = require('gitlog');
-const path = require('path');
-const fs = require('fs');
-const moment = require('moment');
+const gitlog = require('gitlog')
+const path = require('path')
+const moment = require('moment')
+const _ = require('lodash')
 
 const { repos, author, time } = require('./settings')
 
@@ -66,4 +66,6 @@ allCommits.toString = () => `${allCommits.length} commits by ${author} from the 
 
 console.log(`found ${allCommits.toString()}`)
 
-module.exports = allCommits
+const uniqueCommits = _.uniqBy(allCommits, 'subject')
+
+module.exports = uniqueCommits
