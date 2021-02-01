@@ -52,7 +52,9 @@ module.exports = ({ commits, colors, background }) => {
               <span class="separator"> / </span>
               <span class="commit-repo">${commit.repo}</span>
             </div>
-            <div class="commit-message">${commit.subject}</div>
+            <div class="commit-message" style="color:white">${
+              commit.subject
+            }</div>
           </div>`
             )
             .join('\n')}

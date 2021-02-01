@@ -16,28 +16,19 @@ const defaults = {
 
 // SANITIZING INPUT
 
-const arraySanitizer = input => (
-  Array.isArray(input)
-  ? input
-  : input.split(',').map(x => x.trim())
-)
+const arraySanitizer = (input) =>
+  Array.isArray(input) ? input : input.split(',').map((x) => x.trim())
 const sanitizers = {
   repos: arraySanitizer,
-  author: x => x,
-  time: time => {
-    let [num, unit] = (
-      typeof time === 'string'
-      ? time.split(' ')
-      : [time]
-    )
+  author: (x) => x,
+  time: (time) => {
+    let [num, unit] = typeof time === 'string' ? time.split(' ') : [time]
     num = parseInt(num, 10)
     unit = unit || 'days'
     return [num, unit]
   },
-  colors: colors => (
-    arraySanitizer(colors).concat(defaults.colors)
-  ),
-  background: x => x
+  colors: (colors) => arraySanitizer(colors).concat(defaults.colors),
+  background: (x) => x
 }
 
 // GETTING SANTIZED SETTINGS FROM PROCESS ARGS, CONFIG FILE, OR DEFAULTS
@@ -55,13 +46,9 @@ const args = {
   background: flags.background || flags.bg || flags.b
 }
 
-const settings = Object.keys(sanitizers).reduce(
-  (result, key) => {
-    result[key] = sanitizers[key](
-      args[key] || config[key] || defaults[key]
-    )
-    return result
-  }, {}
-)
+const settings = Object.keys(sanitizers).reduce((result, key) => {
+  result[key] = sanitizers[key](args[key] || config[key] || defaults[key])
+  return result
+}, {})
 
 module.exports = settings

@@ -1,9 +1,10 @@
 {
-  "background": "#122430",
+  "background": "#0e1c25",
   "text": [
     "#569cd6",
     "darkseagreen",
     "orange",
-    "mediumpurple"
+    "mediumpurple",
+    "deeppink"
   ]
 }

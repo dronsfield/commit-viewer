@@ -18,6 +18,8 @@ body {
 
 .day-title {
   color: white;
+  text-transform: uppercase;
+  font-size: 1.1em;
 }
 
 .commit {

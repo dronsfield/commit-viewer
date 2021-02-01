@@ -2,6 +2,7 @@ const gitlog = require('gitlog')
 const path = require('path')
 const moment = require('moment')
 const _ = require('lodash')
+const untildify = require('untildify')
 
 const { repos, author, time } = require('./settings')
 
@@ -21,7 +22,11 @@ repos.forEach((repo) => {
   // const path = path.join(process.cwd(), repo)
   // console.log(path)
   const options = {
-    repo: _.startsWith(repo, '/') ? repo : path.join(process.cwd(), repo),
+    repo: _.startsWith(repo, '/')
+      ? repo
+      : _.startsWith(repo, '~')
+      ? untildify(repo)
+      : path.join(process.cwd(), repo),
     since: moment()
       .startOf('day')
       .subtract(...time)
