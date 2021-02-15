@@ -41,10 +41,11 @@ const build = () => {
 
   const serve = () => {
     const app = express()
+    const { port } = settings
     app.use(express.static(rpath('../build')))
-    app.listen(8000, () => {
-      console.log('view your commits at http://localhost:8000')
-      opn('http://localhost:8000/')
+    app.listen(port, () => {
+      console.log(`view your commits at http://localhost:${port}`)
+      opn(`http://localhost:${port}/`)
     })
   }
 

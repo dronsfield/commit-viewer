@@ -11,7 +11,8 @@ const defaults = {
   author: '',
   time: '1 week',
   colors: colors.text,
-  background: colors.background
+  background: colors.background,
+  port: 8000
 }
 
 // SANITIZING INPUT
@@ -28,7 +29,8 @@ const sanitizers = {
     return [num, unit]
   },
   colors: (colors) => arraySanitizer(colors).concat(defaults.colors),
-  background: (x) => x
+  background: (x) => x,
+  port: (x) => Number(x)
 }
 
 // GETTING SANTIZED SETTINGS FROM PROCESS ARGS, CONFIG FILE, OR DEFAULTS
@@ -43,12 +45,14 @@ const args = {
   author: flags.author || flags.a,
   time: flags.time || flags.t,
   colors: flags.color || flags.c,
-  background: flags.background || flags.bg || flags.b
+  background: flags.background || flags.bg || flags.b,
+  port: flags.port || flags.p
 }
 
 const settings = Object.keys(sanitizers).reduce((result, key) => {
   result[key] = sanitizers[key](args[key] || config[key] || defaults[key])
   return result
 }, {})
+
 
 module.exports = settings
