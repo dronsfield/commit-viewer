@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const flags = require('minimist')(process.argv.slice(2))
-const colors = require('./colors')
+const colors = require('./colors.json')
 
 // DEFAULT SETTINGS
 
