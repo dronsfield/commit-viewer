@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/dronsfield/commit-viewer#readme",
   "dependencies": {
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "gitlog": "^3.1.2",
     "lodash": "^4.17.21",
     "mkdirp": "^0.5.1",
